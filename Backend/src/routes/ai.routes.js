@@ -1,12 +1,7 @@
 const express = require("express")
 const router = express.Router()
+const aiCountroller = require("../controllers/ai.countrollers")
 
-router.get("/get-response", (req, res) => {
-  const prompt = req.query.prompt
+router.post("/get-review", aiCountroller.getReview)
 
-  if (!prompt) {
-    return res.status(400).send("Prompt is required")
-  }
-})
-
-module.exports = router;
+module.exports = router
